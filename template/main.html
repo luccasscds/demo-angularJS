@@ -1,0 +1,43 @@
+<div id="splitter"
+    kendo-splitter 
+    k-panes="[ { min: '600px', collapsible: true }, { collapsed: true, collapsible: true }]"
+
+    style="
+        height: 90vh;
+        min-height: 500px;
+    "
+>
+    <div class="part-left" ng-controller="MainCtrl">
+        <div kendo-grid="grid" k-options="getGridOptions()"></div>
+        
+        <script type="text/x-kendo-template" id="template-analise">
+            <div class="grid-analises"></div>
+        </script>
+    </div>
+    <div class="part-right" ng-controller="DetailGrunaliseCtrl">
+        <div class="k-content">
+            <h2 class="px-4 mt-1">Edite o seu grupo de análise</h2>
+            
+            <form class="d-flex flex-column p-4" >
+                <label >
+                    <p>ID:</p>
+                    <input class="k-input k-textbox k-input-solid" type="number" ng-model="data.GRUANALI" name="GRUANALI" disabled>
+                </label>
+                <label>
+                    <p>Descrição:</p>
+                    <input class="k-input k-textbox k-input-solid" type="text" ng-model="data.DESCGRUANALI" name="DESCGRUANALI" >
+                </label>
+                <label>
+                    <p>Status:</p>
+                    <input class="k-input k-textbox k-input-solid" type="text" ng-model="data.STATUSGRUANALI" name="STATUSGRUANALI" >
+                </label>
+                <label>
+                    <p>Tipo:</p>
+                    <input class="k-input k-textbox k-input-solid" type="number" ng-model="data.TIPOGRUANALI" name="TIPOGRUANALI" >
+                </label>
+                <button class="k-button" type="submit" ng-click="save()">Salvar</button>
+            </form>
+        </div>
+        <div kendo-grid="gridAnali" k-options="getGridOptions()"></div>
+    </div>
+</div>
